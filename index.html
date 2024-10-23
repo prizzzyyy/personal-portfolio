@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priscilla - Personal Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;600&display=swap" rel="stylesheet"> <!-- Google Fonts -->
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif; /* Modern font */
+            line-height: 1.6; /* Improved readability */
+            background-color: #f4f4f4; /* Light background color */
+            color: #333; /* Dark text color */
+        }
+
+        header {
+            background-color: #ec9aba;
+            background-color; /* Primary color */
+            color: #fff; /* White text color */
+            padding: 20px 40px; /* Increased padding for a spacious look */
+            text-align: center; /* Centered header text */
+        }
+
+        h1 {
+            font-size: 2.5rem; /* Larger header font size */
+            margin-bottom: 10px; /* Spacing below the header */
+        }
+
+        .navbar {
+            list-style-type: none;
+            display: flex; /* Horizontal layout */
+            justify-content: center; /* Center navigation links */
+            padding-top: 10px; /* Spacing above the navigation */
+            flex-wrap: wrap; /* Wrap links on smaller screens */
+        }
+
+        .navbar li {
+            margin: 0 15px; /* Spacing between links */
+        }
+
+        .navbar a {
+            color: #fff; /* White link color */
+            text-decoration: none; /* Remove underline */
+            padding: 10px 15px;
+            border-radius: 4px; /* Rounded corners */
+            transition: background-color 0.3s, transform 0.2s; /* Smooth hover effect */
+        }
+
+        .navbar a:hover {
+            background-color: #e03d60; /* Darker shade on hover */
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+
+        main {
+            padding: 40px 20px; /* Ample padding for the main content */
+            max-width: 800px; /* Limit width for better readability */
+            margin: auto; /* Center the main content */
+            background-color: #fff; /* White background for main content */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        section {
+            margin-bottom: 30px; /* Spacing between sections */
+        }
+
+        h2 {
+            font-size: 2rem; /* Larger subheading font size */
+            margin-bottom: 15px; /* Spacing below the subheading */
+            color: #000; /* Change subheading color to black */
+        }
+
+        .responsive-image {
+            max-width: 100%; /* Makes the image scale down to fit the container */
+            height: auto; /* Maintains the aspect ratio */
+            border-radius: 8px; /* Optional: adds rounded corners */
+            display: block; /* Centers the image */
+            margin: 20px auto; /* Adds spacing above and below the image */
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            background-color: #f1f1f1; /* Light background color for footer */
+            position: relative;
+            bottom: 0;
+            width: 100%; /* Full width footer */
+            margin-top: 20px; /* Spacing above footer */
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px; /* Reduce padding on smaller screens */
+            }
+
+            h1 {
+                font-size: 2rem; /* Smaller header font size */
+            }
+
+            .navbar {
+                flex-direction: column; /* Stack links vertically */
+                align-items: center; /* Center align items */
+            }
+
+            .navbar li {
+                margin: 5px 0; /* Vertical spacing between links */
+            }
+
+            main {
+                padding: 30px 15px; /* Adjust padding for smaller screens */
+            }
+
+            h2 {
+                font-size: 1.5rem; /* Smaller subheading font size */
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem; /* Further reduce header font size */
+            }
+
+            h2 {
+                font-size: 1.25rem; /* Further reduce subheading font size */
+            }
+        }
+
+        /* Flexbox Styles for Project and Contact Sections */
+        .project-container {
+            display: flex;
+            flex-wrap: wrap; /* Wrap items onto the next line */
+            justify-content: space-between; /* Space between items */
+        }
+
+        .project-item {
+            flex: 1 1 300px; /* Grow, shrink, and set a minimum width */
+            margin: 10px; /* Spacing around items */
+            padding: 20px;
+            background: #f4f4f4; /* Background for project items */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        .contact-container {
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center align items */
+        }
+
+        .contact-item {
+            margin: 10px 0; /* Spacing between items */
+            text-align: center; /* Center text */
+        }
+
+        /* Contact Form Styles */
+        .contact-form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #d6447c;
+            background-color: 
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #d6447c;
+        }
+
+        .error {
+            color: red;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Priscilla Cinta Anara</h1>
+        <nav>
+            <ul class="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <img src="bs.jpg" alt="me" class="responsive-image">
+            <p>bonjour, je m'appelle Priscilla Cinta Anara</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <div class="contact-container">
+                <div class="contact-item">
+                    <p>Email: <a href="mailto:your.email@example.com">anaraprissy@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div id="errorMessage" class="error"></div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Clear previous error messages
+        document.getElementById("errorMessage").innerText = "";
+
+        // Get form values
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        // Check if all fields are filled
+        if (!name || !email || !message) {
+            document.getElementById("errorMessage").innerText = "Please fill in all fields.";
+            return;
+        }
+
+        // If validation is successful, simulate form submission
+        alert("Form submitted successfully!");
+        document.getElementById("contactForm").reset(); // Reset the form fields
+    });
+    </script>
+</body>
+</html>
